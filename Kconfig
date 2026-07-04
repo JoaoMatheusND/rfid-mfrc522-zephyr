@@ -1,0 +1,31 @@
+# Copyright (c) 2026, Centro de Inovação Edge.
+# SPDX-License-Identifier: BSD-3-Clause
+
+menuconfig RFID_MFRC522
+    bool "MFRC522 RFID Reader"
+    default n
+
+choice
+prompt "MFRC522 Transport"
+default MFRC522_TRANSPORT_SPI
+depends on RFID_MFRC522
+    config MFRC522_TRANSPORT_SPI
+        bool "MFRC522 over SPI."
+        depends on SPI
+endchoice
+
+config MFRC522_UID_MAX_LEN
+    int "Maximum UID length, in bytes."
+    default 10
+    depends on RFID_MFRC522
+
+config MFRC522_TRANSCEIVE_TIMEOUT_MS
+    int "PICC transceive timeout, in milliseconds."
+    default 200
+    depends on RFID_MFRC522
+endmenu
+
+
+module = MFRC522
+module-str = mfrc522
+source "subsys/logging/Kconfig.template.log_config"

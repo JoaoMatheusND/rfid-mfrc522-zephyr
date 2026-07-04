@@ -1,0 +1,7 @@
+# Copyright (c) 2026, Centro de Inovação Edge.
+# SPDX-License-Identifier: BSD-3-Clause
+
+name: mfrc522
+build:
+  cmake: .
+  kconfig: Kconfig
