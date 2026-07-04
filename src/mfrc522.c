@@ -79,12 +79,12 @@ static struct mfrc522_control {
 
 static inline int reg_write(uint8_t addr, uint8_t val)
 {
-	return transport_reg_write(addr, val);
+	return mfrc522_transport_reg_write(addr, val);
 }
 
 static inline int reg_read(uint8_t addr, uint8_t *val)
 {
-	return transport_reg_read(addr, val);
+	return mfrc522_transport_reg_read(addr, val);
 }
 
 /**
@@ -548,7 +548,7 @@ bool mfrc522_init(void)
 
 	self.initialized = false;
 
-	transport_init();
+	mfrc522_transport_init();
 
 	ret = reg_write(REG_COMMAND, CMD_SOFT_RESET);
 	if (ret != 0) {

@@ -5,3 +5,5 @@ name: mfrc522
 build:
   cmake: .
   kconfig: Kconfig
+  settings:
+    dts_root: .
