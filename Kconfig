@@ -9,6 +9,11 @@ choice
 prompt "MFRC522 Transport"
 default MFRC522_TRANSPORT_SPI
 depends on RFID_MFRC522
+
+    config MFRC522_TRANSPORT_I2C
+        bool "MFRC522 over I2C"
+        depends on I2C
+
     config MFRC522_TRANSPORT_SPI
         bool "MFRC522 over SPI."
         depends on SPI
@@ -23,8 +28,6 @@ config MFRC522_TRANSCEIVE_TIMEOUT_MS
     int "PICC transceive timeout, in milliseconds."
     default 200
     depends on RFID_MFRC522
-endmenu
-
 
 module = MFRC522
 module-str = mfrc522

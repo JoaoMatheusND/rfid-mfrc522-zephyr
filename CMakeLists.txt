@@ -6,3 +6,4 @@ zephyr_library_sources(src/mfrc522.c)
 zephyr_include_directories(includes)
 
 zephyr_library_sources_ifdef(CONFIG_MFRC522_TRANSPORT_SPI src/transport_spi.c)
+zephyr_library_sources_ifdef(CONFIG_MFRC522_TRANSPORT_I2C src/transport_i2c.c)
